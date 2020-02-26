@@ -27,6 +27,7 @@ RUN npm install rxjs@^6.5.3 tslib@^1.10.0 zone.js@~0.10.2
 
 
 
-CMD ng serve --host 0.0.0.0
+CMD ng serve --host 0.0.0.0 --proxy-config proxy.conf.json
+
 
 
