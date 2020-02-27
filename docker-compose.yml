@@ -1,0 +1,26 @@
+# Assignment 2:  Docker containers (different containers for different services, for example database in its own container etc.)
+version: '3'
+services:
+    web:
+        image: sip2sip/angular9-crud
+        ports:
+            - 4200:4200
+        links:
+            - mongodb
+            - server-api
+        depends_on:
+            - mongodb
+            - server-api                
+    server-api:
+        image: sip2sip/node-rest-api
+        ports:
+            - 3000:3000
+        links:
+            - mongodb
+        depends_on:
+            - mongodb
+         
+    mongodb:
+        image: mongo
+        ports:
+            - 27017:27017
